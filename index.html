@@ -135,9 +135,9 @@
                     <!-- Text SIze Select -->
                     <input id="textInput" type="text" class="block" placeholder="Enter text" onkeyup="onTextChange(this.value)" />
                     <button class="add-line-btn" onclick="onAddLineText()" data-trans="add-line">Add Text</button>
-                    <button type="button" class="font-size-btn plus btn btn-secondary" value="minus" onclick="onTextSizeChange(this.value)">🗛</button>
-                    <span id="size-font-text">40</span>
-                    <button type="button" class="font-size-btn minous btn btn-secondary" value="plus" onclick="onTextSizeChange(this.value)"> 🗚</button>
+                    <button type="button" class="font-size-btn plus btn btn-secondary" value="minus" onclick="onTextSizeChange(this.value)">-</button>
+                    <span id="size-font-text" hidden>40</span>
+                    <button type="button" class="font-size-btn minous btn btn-secondary" value="plus" onclick="onTextSizeChange(this.value)"> +</button>
                     <!-- Change Font -->
 
                     <select class="fonts-list" onchange="onChangeFont(this.value)">

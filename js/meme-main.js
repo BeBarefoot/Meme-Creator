@@ -2,6 +2,7 @@
 
 function init() {
     setFooter('false')
+
     clearMemeLines()
     createMemeLines();
     clearAllInputs();
@@ -16,7 +17,9 @@ function init() {
 
 
 function loadingDog() {
+    $('footer').hide()
     $('.loading').fadeTo('slow', 1, () => { $('.loading').hide() })
+
 }
 
 function hideControls() {
@@ -193,8 +196,6 @@ function createNewInput(width, height) {
     var memeLine = getLineById(getNumLineEdit())
 
     if (elChoseInput) {
-        console.log('exists')
-            // debugger
         elChoseInput.style.width = width + 'px';
         elChoseInput.style.height = height + 'px';
         elChoseInput.style.left = memeLine.align.x + 'px';
@@ -327,7 +328,7 @@ function clearAllInputs() {
     elSizeInput.value = 20;
     document.querySelector('.bold-btn').innerText = '𝐁';
     document.querySelector('.shadow-btn').innerText = '❏';
-    document.querySelector('.stroke-btn').innerText = 'S';
+    document.querySelector('.stroke-btn').innerText = 'off';
 }
 
 
@@ -422,11 +423,11 @@ function onClickShadow(elShadow) {
 
 function onClickStroke(elStroke) {
     $('.stroke-btn').toggleClass('darken-btn')
-    if (elStroke.innerText === 's') {
-        elStroke.innerText = 'S';
+    if (elStroke.innerText === 'off') {
+        elStroke.innerText = 'ON';
         isStroke(false, getNumLineEdit());
     } else {
-        elStroke.innerText = 's';
+        elStroke.innerText = 'off';
         isStroke(true, getNumLineEdit());
     }
     rederText()
