@@ -1,0 +1,36 @@
+
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-bottom: 1vh;
+    background: linear-gradient(to left, #e0eafc, #cfdef3);
+}
+
+.text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.canvas {
+    margin-top: 10vh;
+    background-color: whitesmoke;
+    border-radius: 4px;
+}
+
+.canvas>p {
+    text-align: center;
+}
+
+.container-input-text{
+    position: relative;
+}
+
+.container-input-text span{
+    cursor: move;
+    position: absolute;
+    background:unset;
+}

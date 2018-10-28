@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quantico&effect=canvas-print" rel="stylesheet">
+    <link rel="stylesheet" href="lib/bs4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/flags/css/flag-icon.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="img/LOGO_DOG.png">
+    <title>Ultimate Meme</title>
+
+</head>
+
+<div class="loading"></div>
+
+<body onload="init(), loadingDog()">
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-light light-blue lighten-4">
+            <a class="navbar-brand logo font-effect-canvas-print" href="#" onclick="init()">ULTIM<span>ATE</span> MEME</a>
+            <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="dark-blue-text"><i class="fa fa-bars fa-1x"></i></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item lang-selector">
+                        <a class="nav-link" href="#"> <span class="flag-icon flag-icon-au" onclick="setLanguage('en')"></span> / <span class="flag-icon flag-icon-il" onclick="setLanguage('he')"></span> </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-trans="upload" onclick="uploadImage()"> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-trans="gallery" onclick="init()"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-trans="about" onclick="aboutPage()"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><button data-trans="get-in-touch" class="contact-click" onclick="toggleContactModal()">
+                            </button>
+                        </a>
+                </ul>
+            </div>
+        </nav>
+
+
+        <!-- Navbar for Desktop -->
+        <div class="navbar-web-container">
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-trans="upload" onclick="uploadImage()"> </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-trans="gallery" onclick="init()"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-trans="about" onclick="aboutPage()"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><button data-trans="get-in-touch" class="contact-click" onclick="toggleContactModal()"></a>
+            </li>
+            <li class="nav-item lang-selector">
+                <a class="nav-link" href="#"> <span class="flag-icon flag-icon-au" onclick="setLanguage('en')"></span> / <span class="flag-icon flag-icon-il" onclick="setLanguage('he')"></span> </a>
+
+            </li>
+            </ul>
+        </div>
+    </header>
+    <div class="search-bar-container">
+        <input class="search-bar" data-trans="search" type="text" placeholder="" aria-label="Search" data-trans="placeholder" onkeyup="onSearchInput(this.value,event)">
+    </div>
+
+
+    <!-- Gallery  -->
+    <section class="gallery">
+        <ul class="gallery-list">
+        </ul>
+    </section>
+
+    <!-- CANVAS CONTAINER  -->
+    <div class="canvas-container">
+        <div class="container-input-text">
+            <canvas class="canvas">
+            </canvas>
+        </div>
+
+
+    </div>
+
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-item">
+            <div class="box">
+                <div class="inner">
+                    <span>ULTIMATE MEME CREATOR</span>
+                </div>
+                <div class="inner">
+                    <span>ULTIMATE MEME CREATOR</span>
+                </div>
+            </div>
+            <h1 class="about-title" data-trans="abouth1"></h1>
+            <p class="about-text" data-trans="aboutp1"></p>
+            <h3 class="about-text" data-trans="abouth2"> </h3>
+            <p class="about-text" data-trans="aboutp2"> </p>
+        </div>
+    </section>
+
+    <!-- Tag Line -->
+    <section class="tags-container">
+        <ul class="tags-list">
+        </ul>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-controls">
+            <div class="main-footer-nav">
+                <button class="footer-controls-button" onclick="showTextAdd()" data-trans="addtext"></button>
+                <button class="footer-controls-button" onclick="showTextColor()" data-trans="textcolor"></button>
+                <button class="footer-controls-button" onclick="showSocialMedia()" data-trans="save"></button>
+            </div>
+            <!-- Text Manipulation Containers -->
+            <div class="all-controls">
+                <!-- Text -->
+                <div class="text-line-edit">
+                    <button class="footer-controls-button" onclick="showMainControls()" data-trans="back"></button>
+                    <select id="edit-line-list" onchange="changeCurrTxt(this.value)">
+                        <option value="1">Text 1</option>
+                    </select>
+                    <!-- Text SIze Select -->
+                    <input id="textInput" type="text" class="block" placeholder="Enter text" onkeyup="onTextChange(this.value)" />
+                    <button class="add-line-btn" onclick="onAddLineText()" data-trans="add-line">Add Text</button>
+                    <button type="button" class="font-size-btn plus btn btn-secondary" value="minus" onclick="onTextSizeChange(this.value)">🗛</button>
+                    <span id="size-font-text">40</span>
+                    <button type="button" class="font-size-btn minous btn btn-secondary" value="plus" onclick="onTextSizeChange(this.value)"> 🗚</button>
+                    <!-- Change Font -->
+
+                    <select class="fonts-list" onchange="onChangeFont(this.value)">
+                        <option class="font-type impact" value="Impact">Impact</option>
+                        <option class="font-type arial" value="Arial">Arial</option>
+                        <option class="font-type times" value="Times New Roman">Times New Roman</option>
+                        <option class="font-type courier" value="Courier New">Courier New</option>
+                        <option class="font-type verdena" value="Verdana">Verdana</option>
+                        <option class="font-type serif" value="serif">Serif</option>
+                    </select>
+
+                </div>
+                <!-- Text Color Select -->
+                <div class="font-color-container">
+                    <button class="footer-controls-button" onclick="showMainControls()" data-trans="back"></button>
+                    <p data-trans="textcolor"></p>
+                    <input type="color" onchange="onChangeTextColor(this.value)" id="input-color-text">
+
+                    <!-- Text Stroke and Bold -->
+                    <p data-trans="textoutline"></p>
+                    <input type="color" onchange="onChangeStrokeColor(this.value)" id="input-color-stroke" value="#ffffff">
+                    <div class="stroke-btns">
+                        <button class="stroke-btn" onclick="onClickStroke(this)">S</button>
+                        <button class="bold-btn" onclick="onClickBold(this)">𝐁</button>
+                        <button class="shadow-btn" onclick="onClickShadow(this)">❏</button>
+                    </div>
+                </div>
+                <div class="social-media-container">
+                    <button class="footer-controls-button" onclick="showMainControls()" data-trans="back"></button>
+                    <!-- SAVE MEME -->
+                    <a class="save-meme" href="#" onclick="downloadImg(this)" download="my-img.jpg" data-trans="download">
+                    </a>
+                    <!-- Share To Facebook -->
+                    <div class="publish-form-container"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Get In Touch Modal -->
+    <section class="get-in-touch">
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header ">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h4 class="modal-title" data-trans="contact"></h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form role="form" method="post" id="reused_form">
+                            <p data-trans="suggestions">
+
+                            </p>
+
+                            <div class="form-group">
+                                <label for="name" data-trans="name">
+                                </label>
+                                <input type="text" class="form-control" id="name" name="name" required maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-trans="mail">
+                                </label>
+                                <input type="email" class="form-control" id="email" name="email" required maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="name" data-trans="massage">
+                                </label>
+                                <textarea class="form-control" type="textarea" name="message" id="message" placeholder="Your Message Here" maxlength="600" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" data-trans="send">Send!
+                                →</button>
+                        </form>
+                        <div id="success_message" style="width:100%; height:100%; display:none; ">
+                            <h3>Sent your message successfully!</h3>
+                        </div>
+                        <div id="error_message" style="width:100%; height:100%; display:none; ">
+                            <h3>Error</h3>
+                            Sorry there was an error sending your form.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <input id="uploadInupt" type="file" name="image" onchange="readImage(files)" style="display: none;" />
+
+    <script src="lib/jquery/jquery-3.3.1.min.js"></script>
+    <script src="lib/bs4/js/bootstrap.bundle.min.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/i18n-service.js"></script>
+    <script src="js/upload-service.js"></script>
+    <script src="js/meme-main.js"></script>
+
+
+</body>
+
+</html>

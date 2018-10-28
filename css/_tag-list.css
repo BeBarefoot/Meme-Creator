@@ -1,0 +1,36 @@
+      .tags-container {
+          overflow: auto;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: linear-gradient(260deg, #2376ae 0%, #78a7a0 100%);
+      }
+      
+      .tags-list {
+          cursor: pointer;
+          display: flex;
+          flex-direction: row;
+          color: whitesmoke;
+          outline: 1px green;
+      }
+      
+      .tags-list li:hover {
+          transition: all 0.3s ease;
+          color: #d82b7c;
+      }
+      
+      @media (max-width: 680px) {
+          .tags-container {
+              /* overflow: hidden; */
+              justify-content: flex-start;
+              /* display: block; */
+              /* position: absolute; */
+          }
+          .tags-list {
+              display: flex;
+              justify-content: center
+          }
+      }

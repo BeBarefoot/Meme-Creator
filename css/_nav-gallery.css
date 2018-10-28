@@ -1,0 +1,105 @@
+    .gallery-list {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 0 auto;
+        overflow: hidden;
+        list-style-type: none;
+    }
+    
+    .hex {
+        position: relative;
+        visibility: hidden;
+        outline: 1px solid transparent;
+    }
+    
+    .hex::after {
+        content: '';
+        display: block;
+        padding-bottom: 90%;
+    }
+    
+    .image-container {
+        position: absolute;
+        width: 96%;
+        padding-bottom: 95%;
+        margin: 0 2%;
+        overflow: hidden;
+        visibility: hidden;
+    }
+    
+    .image-container * {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        position: absolute;
+        visibility: visible;
+    }
+    
+    .image-item {
+        cursor: pointer;
+        left: -100%;
+        right: -100%;
+        width: auto;
+        height: 100%;
+        margin: 0 auto;
+        transition: border 1s;
+    }
+    
+    .image-item:hover {
+        border: solid 100px transparent;
+    }
+    
+    @media (min-width:1201px) {
+        .gallery-list {
+            padding-bottom: 5%
+        }
+        .hex {
+            width: 20%;
+        }
+        .hex:nth-child(9n+6) {
+            margin-left: 10%;
+        }
+    }
+    
+    @media (max-width: 1200px) and (min-width:901px) {
+        .gallery-list {
+            padding-bottom: 5.5%
+        }
+        .hex {
+            width: 25%;
+        }
+        .hex:nth-child(7n+5) {
+            margin-left: 12.5%;
+        }
+    }
+    
+    @media (max-width: 900px) and (min-width:601px) {
+        .gallery-list {
+            padding-bottom: 7.4%
+        }
+        .hex {
+            width: 33.333%;
+        }
+        .hex:nth-child(5n+4) {
+            margin-left: 16%;
+        }
+        .image-item:hover {
+            transition: all .5s;
+            border: solid 65px transparent;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .gallery-list {
+            padding-bottom: 11.2%
+        }
+        .hex {
+            width: 50%;
+        }
+        .hex:nth-child(3n+3) {
+            margin-left: 25%;
+        }
+        .image-item {
+            display: block !important;
+            border: solid 50px transparent;
+        }
+    }

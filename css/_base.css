@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    position: relative;
+    background: linear-gradient(to left, #e0eafc, #cfdef3);
+    min-height: 100%;
+    margin: 0 auto;
+}
+
+li {
+    list-style: none
+}
+
+input[placeholder] {
+    text-align: center;
+}
+
+.loading {
+    background-image: url('../img/LOGO_DOG.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    background-position: center;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input[type="color"] {
+    margin: .4rem;
+}
