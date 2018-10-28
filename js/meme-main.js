@@ -15,7 +15,6 @@ function init() {
 }
 
 
-}
 
 function hideControls() {
     $('footer').show()
