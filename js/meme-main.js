@@ -2,7 +2,6 @@
 
 function init() {
     setFooter('false')
-
     clearMemeLines()
     createMemeLines();
     clearAllInputs();
@@ -15,10 +14,6 @@ function init() {
     setLanguage()
 }
 
-
-function loadingDog() {
-    $('footer').hide()
-    $('.loading').fadeTo('slow', 1, () => { $('.loading').hide() })
 
 }
 
